@@ -127,4 +127,4 @@ def isValidValue(valueNode):
 	if not numberNode.rootName == 'Number': return False
 	if len(numberNode.children) != 1: return False
 	num = numberNode.children[0].rootName
-	return unicode(num).isnumeric()
+	return str(num).isnumeric()

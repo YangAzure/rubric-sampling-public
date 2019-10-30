@@ -44,11 +44,11 @@ def removeColors(ast):
         removeColors(child)
 
         newChildren = []
-	for child in ast.children:
-		if child.rootName != 'SetColor':
-			newChildren.append(child)
+        for child in ast.children:
+            if child.rootName != 'SetColor':
+                newChildren.append(child)
 
-	ast.children = newChildren
+        ast.children = newChildren
 
 
 def flatten_ast(ast):
@@ -75,7 +75,7 @@ def unflatten_ast(data):
     """
     try:
         assert _check_if_valid_program(data)
-    except AssertionError, e:
+    except AssertionError as e:
         raise BadProgramString(e.args)
     token, start_pos, end_pos = _find_first_token(data)
 

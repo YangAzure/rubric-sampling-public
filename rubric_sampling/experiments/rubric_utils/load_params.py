@@ -3,7 +3,7 @@ from __future__ import print_function
 from __future__ import absolute_import
 
 import os
-import cPickle
+import pickle as cPickle
 import numpy as np
 from ..utils import DATASETS_ROOT
 
@@ -31,7 +31,7 @@ def get_label_params(problem_id):
     elif problem_id == 8:
         from .p8_utils import IX_TO_LABEL, LOOP_LABELS_IX, GEOMETRY_LABELS_IX
 
-    LABEL_TO_IX = {v: k for k, v in IX_TO_LABEL.iteritems()}
+    LABEL_TO_IX = {v: k for k, v in IX_TO_LABEL.items()}
     N_LABELS = len(IX_TO_LABEL.keys())
 
     return N_LABELS, IX_TO_LABEL, LABEL_TO_IX, LOOP_LABELS_IX, GEOMETRY_LABELS_IX

@@ -6,7 +6,7 @@ from __future__ import absolute_import
 
 import os
 import sys
-import cPickle
+import pickle as cPickle
 
 from .pcfg_utils.models.simulate import generateTrajectories
 from .rubric_utils.load_params import get_pcfg_params, get_pcfg_path
@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     programs = [program for program in program2count.keys()]
     counts = [program2count[program] for program in programs]
-    labels = [','.join(program2label[program].keys()[0].split('\n')) for program in programs]
+    labels = [','.join(list(program2label[program].keys())[0].split('\n')) for program in programs]
 
     with open(os.path.join(args.out_dir, 'samples_pcfg.pickle'), 'wb') as fp:
         cPickle.dump({
